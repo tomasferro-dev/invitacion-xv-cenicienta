@@ -61,11 +61,11 @@ export default function Hero() {
       </div>
 
       {/* indicador de scroll */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float" aria-hidden>
+      {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float" aria-hidden>
         <div className="flex h-10 w-6 items-start justify-center rounded-full border border-celeste/40 p-1.5">
           <span className="h-2 w-1 rounded-full bg-celeste/80" />
         </div>
-      </div>
+      </div> */}
     </header>
   )
 }
