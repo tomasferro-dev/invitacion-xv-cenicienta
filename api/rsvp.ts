@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { ensureTable, sql } from './_db'
+import { ensureTable, sql } from './_db.js'
 
 interface Body {
   nombre?: unknown
