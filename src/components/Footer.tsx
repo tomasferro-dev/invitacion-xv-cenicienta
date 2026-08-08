@@ -14,6 +14,17 @@ export default function Footer() {
       <p className="mt-8 font-sans text-[0.7rem] text-celeste-soft/30">
         Hecho con magia ✨
       </p>
+      <p className="mt-2 font-sans text-[0.7rem] text-celeste-soft/40">
+        Hecho por{' '}
+        <a
+          href="https://invita.com.ar"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-celeste-soft/70 underline underline-offset-2 transition-colors hover:text-celeste"
+        >
+          invita
+        </a>
+      </p>
     </footer>
   )
 }

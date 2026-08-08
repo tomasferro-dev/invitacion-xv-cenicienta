@@ -82,8 +82,8 @@ export const invitation: InvitationData = {
   horaTexto: '21:00 hs',
 
   ubicacion: {
-    lugar: 'Palatium Novus',
-    direccion: 'Palatium Novus — Mendoza',
+    lugar: 'Salón Palatium Novus',
+    direccion: 'El Challao — Las Heras — Mendoza',
     lat: -32.8583504,
     lng: -68.9018509,
   },
@@ -94,7 +94,7 @@ export const invitation: InvitationData = {
       'Cuando el reloj marque la hora, las puertas del palacio se abrirán. ' +
       'Te invito a compartir la noche más mágica de mi vida: mis quince años. ' +
       'Te pido dos cositas: llegá puntual a las 21:00 y no te olvides de confirmar tu asistencia. ' +
-      'Habrá luces, música y un poco de polvo de hadas para todos.',
+      'Habrá luces, música y momentos inolvidables.',
   },
 
   vestimenta: {

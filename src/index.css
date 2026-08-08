@@ -31,6 +31,23 @@
     background: theme('colors.celeste.DEFAULT');
     color: theme('colors.royal.deep');
   }
+
+  /* Cursor de varita mágica — solo en desktop con puntero fino.
+     Hotspot (10,7) = punta de la estrella. En touch no aplica. */
+  @media (hover: hover) and (pointer: fine) {
+    body {
+      cursor: url('/cursor-wand.svg') 10 7, auto;
+    }
+    a,
+    button,
+    [role='button'],
+    label,
+    input,
+    textarea,
+    .leaflet-container {
+      cursor: url('/cursor-wand.svg') 10 7, pointer;
+    }
+  }
 }
 
 @layer components {

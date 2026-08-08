@@ -68,6 +68,13 @@ export default function MagicBackground() {
     let dpr = 1
     const particles: Particle[] = []
 
+    // seguimiento del movimiento del puntero para la emisión de polvo:
+    // energía que sube con el movimiento y decae rápido al frenar → el polvo
+    // se corta de forma progresiva (sin la cola de ~1s del enfoque anterior).
+    let lastPX = 0
+    let lastPY = 0
+    let emitEnergy = 0
+
     const rand = (a: number, b: number) => a + Math.random() * (b - a)
 
     const isMobile = () => window.innerWidth < 768
@@ -185,13 +192,18 @@ export default function MagicBackground() {
         }
       }
 
-      // emisión suave cerca del puntero/dedo (la "hada" que sigue el dedo)
-      if (!reduced && pointerFresh && Math.random() < 0.7) {
-        const n = 1 + Math.floor(Math.random() * 2)
+      // emisión de polvo proporcional al movimiento real del puntero este frame.
+      // emitEnergy sube al mover y decae al frenar → corta progresivo y sin cola.
+      const pdx = ptr.x - lastPX
+      const pdy = ptr.y - lastPY
+      lastPX = ptr.x
+      lastPY = ptr.y
+      const pSpeed = Math.hypot(pdx, pdy)
+      emitEnergy = emitEnergy * 0.78 + pSpeed
+      if (!reduced && ptr.active) {
+        const n = Math.min(2, Math.floor(emitEnergy / 55))
         for (let i = 0; i < n; i++) {
-          particles.push(
-            spawnDust(ptr.x + rand(-14, 14), ptr.y + rand(-14, 14), 0.5),
-          )
+          particles.push(spawnDust(ptr.x + rand(-9, 9), ptr.y + rand(-9, 9), 0.3))
         }
       }
 

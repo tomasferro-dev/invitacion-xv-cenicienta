@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { invitation } from '../data/invitation'
 import { enviarRsvp, validarRsvp, type RsvpInput } from '../lib/rsvp'
 import { magicBurst } from '../lib/magic'
 import Section from './Section'
@@ -189,16 +188,6 @@ export default function Rsvp() {
                   >
                     Reintentar
                   </button>
-                  {invitation.whatsapp && (
-                    <a
-                      href={`https://wa.me/${invitation.whatsapp}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-4 block font-sans text-sm text-celeste-soft/70 underline"
-                    >
-                      O confirmá por WhatsApp
-                    </a>
-                  )}
                 </>
               )}
             </motion.div>
