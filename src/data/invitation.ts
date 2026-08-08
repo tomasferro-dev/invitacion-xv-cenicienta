@@ -47,7 +47,9 @@ export interface InvitationData {
     codigo: string
     /** Nota adicional */
     nota: string
-    /** Colores prohibidos (por el vestido de la cumpleañera) */
+    /** Paleta sugerida para los invitados */
+    paleta: { nombre: string; hex: string }[]
+    /** Colores reservados/prohibidos (opcional; vacío = no mostrar) */
     prohibidos: { nombre: string; hex: string }[]
   }
 
@@ -72,20 +74,18 @@ export interface InvitationData {
 }
 
 export const invitation: InvitationData = {
-  nombre: 'Isabella',
+  nombre: 'Uma Lucía',
   edad: 15,
 
-  // ⚠️ PLACEHOLDER — cambiar por la fecha real del evento
-  fechaISO: '2026-11-14T21:00',
-  fechaTexto: 'Sábado 14 de Noviembre, 2026',
+  fechaISO: '2026-09-19T21:00',
+  fechaTexto: 'Sábado 19 de Septiembre, 2026',
   horaTexto: '21:00 hs',
 
   ubicacion: {
-    // ⚠️ PLACEHOLDER — ubicación genérica (Plaza Independencia, Mendoza)
-    lugar: 'Salón de Fiestas — Palacio Real',
-    direccion: 'Plaza Independencia, Ciudad de Mendoza, Mendoza',
-    lat: -32.8908,
-    lng: -68.8452,
+    lugar: 'Palatium Novus',
+    direccion: 'Palatium Novus — Mendoza',
+    lat: -32.8583504,
+    lng: -68.9018509,
   },
 
   invitacion: {
@@ -93,36 +93,39 @@ export const invitation: InvitationData = {
     texto:
       'Cuando el reloj marque la hora, las puertas del palacio se abrirán. ' +
       'Te invito a compartir la noche más mágica de mi vida: mis quince años. ' +
+      'Te pido dos cositas: llegá puntual a las 21:00 y no te olvides de confirmar tu asistencia. ' +
       'Habrá luces, música y un poco de polvo de hadas para todos.',
   },
 
   vestimenta: {
     codigo: 'Elegante / Formal',
-    nota: 'Vení preparado para una noche de palacio. Tacos cómodos recomendados: se baila hasta tarde.',
-    prohibidos: [
-      // El vestido de la cumpleañera es celeste → reservado para ella
+    nota: 'Sumate a la paleta de la noche: tonos celeste, gris y azul. Tacos cómodos recomendados: se baila hasta tarde.',
+    paleta: [
       { nombre: 'Celeste', hex: '#A9C2F0' },
+      { nombre: 'Gris', hex: '#AEB6C4' },
+      { nombre: 'Azul', hex: '#4A6BB5' },
     ],
+    prohibidos: [],
   },
 
   galeria: {
-    // ⚠️ PLACEHOLDER — reemplazar por la carpeta/Form de Google Drive de la cumpleañera
+    // ⚠️ PLACEHOLDER — reemplazar por el link real de subida de fotos (ver módulo QR)
     driveUrl: 'https://drive.google.com/drive/folders/PLACEHOLDER',
     fotos: [
-      { src: '/gallery/01.jpg', alt: 'Foto 1' },
-      { src: '/gallery/02.jpg', alt: 'Foto 2' },
-      { src: '/gallery/03.jpg', alt: 'Foto 3' },
-      { src: '/gallery/04.jpg', alt: 'Foto 4' },
-      { src: '/gallery/05.jpg', alt: 'Foto 5' },
-      { src: '/gallery/06.jpg', alt: 'Foto 6' },
+      { src: '/uma_01.jpg', alt: 'Uma Lucía — foto 1' },
+      { src: '/uma_02.jpg', alt: 'Uma Lucía — foto 2' },
+      { src: '/uma_03.jpg', alt: 'Uma Lucía — foto 3' },
+      { src: '/uma_04.jpg', alt: 'Uma Lucía — foto 4' },
+      { src: '/uma_05.jpg', alt: 'Uma Lucía — foto 5' },
+      { src: '/uma_06.jpg', alt: 'Uma Lucía — foto 6' },
     ],
   },
 
   regalo: {
     nota: 'Tu presencia es mi mejor regalo. Pero si querés hacerme un obsequio, podés ayudarme a cumplir mis sueños:',
-    // ⚠️ PLACEHOLDER — alias de la madre de la cumpleañera
-    alias: 'isabella.xv.palacio',
-    titular: 'María González',
+    alias: 'lucia.cuilliere',
+    // ⚠️ Confirmar el nombre del titular de la cuenta
+    titular: 'Mamá de Uma Lucía',
   },
 
   whatsapp: '5492611234567',

@@ -34,9 +34,33 @@ export default function DressCode() {
         </div>
       </Reveal>
 
-      {vestimenta.prohibidos.length > 0 && (
+      {vestimenta.paleta.length > 0 && (
         <Reveal delay={220}>
           <div className="card-royal mx-auto mt-10 max-w-md p-6 text-center">
+            <p className="font-sans text-xs uppercase tracking-eyebrow text-gold">
+              Paleta sugerida
+            </p>
+            <p className="mt-3 font-script text-lg text-snow/85">
+              Vestite en la gama de la noche:
+            </p>
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-5">
+              {vestimenta.paleta.map((c) => (
+                <div key={c.hex} className="flex flex-col items-center gap-2">
+                  <span
+                    className="inline-block h-11 w-11 rounded-full ring-2 ring-white/30 shadow-lg"
+                    style={{ backgroundColor: c.hex }}
+                  />
+                  <span className="font-sans text-sm text-celeste-soft/90">{c.nombre}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+      )}
+
+      {vestimenta.prohibidos.length > 0 && (
+        <Reveal delay={300}>
+          <div className="card-royal mx-auto mt-6 max-w-md p-6 text-center">
             <p className="font-sans text-xs uppercase tracking-eyebrow text-gold">
               Color reservado para la cumpleañera
             </p>
