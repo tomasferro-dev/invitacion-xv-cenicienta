@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-royal-deep text-snow font-sans antialiased;
+    /* base de fondo por si el canvas tarda en montar */
+    background-image:
+      radial-gradient(120% 80% at 50% -10%, #1E2750 0%, #0B1026 45%, #070A1A 100%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: theme('colors.celeste.DEFAULT');
+    color: theme('colors.royal.deep');
+  }
+}
+
+@layer components {
+  /* Texto con degradé celeste→dorado, brillante */
+  .text-magic {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      100deg,
+      theme('colors.celeste.soft') 0%,
+      theme('colors.snow') 25%,
+      theme('colors.gold.soft') 50%,
+      theme('colors.celeste.DEFAULT') 75%,
+      theme('colors.celeste.soft') 100%
+    );
+    background-size: 200% auto;
+    @apply animate-shimmer;
+  }
+
+  /* Filete dorado sutil para cards del palacio */
+  .card-royal {
+    @apply rounded-2xl border border-celeste/15 bg-royal-soft/40 backdrop-blur-md;
+    box-shadow:
+      0 1px 0 0 theme('colors.celeste.glow' / 10%) inset,
+      0 20px 60px -30px theme('colors.ink');
+  }
+
+  .eyebrow {
+    @apply font-sans uppercase tracking-eyebrow text-celeste/80 text-xs sm:text-sm;
+  }
+
+  .btn-royal {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3
+      font-sans font-medium tracking-royal uppercase text-sm
+      bg-gradient-to-b from-celeste-soft to-celeste text-royal-deep
+      transition-transform duration-200 hover:scale-[1.03] active:scale-95;
+    box-shadow: 0 10px 30px -10px theme('colors.celeste.DEFAULT' / 60%);
+  }
+}
+
+/* Leaflet: que el mapa herede el look oscuro y sea redondeado */
+.leaflet-container {
+  background: #0b1026 !important;
+  font-family: theme('fontFamily.sans');
+}
+.leaflet-control-attribution {
+  background: rgba(11, 16, 38, 0.7) !important;
+  color: #8ea3c9 !important;
+}
+.leaflet-control-attribution a {
+  color: #a9c2f0 !important;
+}
