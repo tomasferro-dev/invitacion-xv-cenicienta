@@ -10,6 +10,9 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    /* nada debe generar scroll lateral: clip en el contenedor de scroll raíz */
+    overflow-x: hidden;
+    width: 100%;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -25,6 +28,8 @@
       radial-gradient(120% 80% at 50% -10%, #1E2750 0%, #0B1026 45%, #070A1A 100%);
     background-attachment: fixed;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
   }
 
   ::selection {

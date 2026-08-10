@@ -30,7 +30,7 @@ export default function Hero() {
   const { nombre, edad, fechaTexto, horaTexto, ubicacion } = invitation
 
   return (
-    <header className="relative flex min-h-[100svh] flex-col items-center justify-center px-5 text-center">
+    <header className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-5 text-center">
       {/* halo suave detrás del título */}
       <div
         className="pointer-events-none absolute left-1/2 top-1/2 -z-[1] h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60 blur-[90px]"
