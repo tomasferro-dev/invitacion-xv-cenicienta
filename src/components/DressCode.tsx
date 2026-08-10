@@ -62,10 +62,10 @@ export default function DressCode() {
         <Reveal delay={300}>
           <div className="card-royal mx-auto mt-6 max-w-md p-6 text-center">
             <p className="font-sans text-xs uppercase tracking-eyebrow text-gold">
-              Color reservado para la cumpleañera
+              Colores reservados para la quinceañera
             </p>
             <p className="mt-3 font-script text-lg text-snow/85">
-              Por favor, evitá vestir de estos colores:
+              Agradecemos evitar las prendas en tonos celeste, azul y gris:
             </p>
             <div className="mt-5 flex flex-wrap items-center justify-center gap-4">
               {vestimenta.prohibidos.map((c) => (

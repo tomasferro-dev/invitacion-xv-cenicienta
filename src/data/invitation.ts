@@ -98,14 +98,16 @@ export const invitation: InvitationData = {
   },
 
   vestimenta: {
-    codigo: 'Elegante / Formal',
-    nota: 'Sumate a la paleta de la noche: tonos celeste, gris y azul. Tacos cómodos recomendados: se baila hasta tarde.',
-    paleta: [
+    codigo: 'Formal / Elegante',
+    nota: '¡Queremos que la noche brille en todos los colores! Tacos cómodos recomendados: se baila hasta tarde.',
+    // La gente va formal y libre de color: no hay paleta sugerida.
+    paleta: [],
+    // Colores reservados para la quinceañera y su entorno (los que hay que evitar).
+    prohibidos: [
       { nombre: 'Celeste', hex: '#A9C2F0' },
-      { nombre: 'Gris', hex: '#AEB6C4' },
       { nombre: 'Azul', hex: '#4A6BB5' },
+      { nombre: 'Gris', hex: '#AEB6C4' },
     ],
-    prohibidos: [],
   },
 
   galeria: {
