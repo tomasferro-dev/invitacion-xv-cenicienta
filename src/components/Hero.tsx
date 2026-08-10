@@ -9,14 +9,12 @@ import { useStartWhenVisible } from '../hooks/useStartWhenVisible'
 // siguiente. Los tiempos están acá arriba para afinar el ritmo de un vistazo
 // (en segundos, desde que la página se vuelve visible).
 const T = {
-  corona: 0.3,
-  eyebrow: 1.4,
-  numero: 2.4,
-  anios: 4.0,
-  ornamento: 4.8,
-  nombre: 5.5,
-  calendario: 6.8,
-  lugar: 8.2,
+  eyebrow: 0.4,
+  numero: 1.4,
+  anios: 3.0,
+  ornamento: 3.8,
+  nombre: 4.5,
+  calendario: 5.8,
 } as const
 
 const EASE: number[] = [0.22, 1, 0.36, 1]
@@ -28,33 +26,8 @@ interface AnimProps {
   transition?: Transition
 }
 
-/** Corona / tiara decorativa. */
-function Crown() {
-  return (
-    <svg
-      width="86"
-      height="52"
-      viewBox="0 0 86 52"
-      className="mx-auto text-gold drop-shadow-[0_0_18px_rgba(231,211,161,0.5)]"
-      aria-hidden
-    >
-      <path
-        d="M8 44h70l-4-30-17 14L43 6 29 28 12 14z"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2.4"
-        strokeLinejoin="round"
-      />
-      <circle cx="43" cy="6" r="3.4" fill="#BBD3FF" />
-      <circle cx="12" cy="14" r="2.6" fill="#BBD3FF" />
-      <circle cx="74" cy="14" r="2.6" fill="#BBD3FF" />
-      <rect x="8" y="44" width="70" height="4" rx="2" fill="currentColor" />
-    </svg>
-  )
-}
-
 export default function Hero() {
-  const { nombre, edad, fechaTexto, horaTexto, ubicacion, fechaISO } = invitation
+  const { nombre, edad, fechaISO } = invitation
   const reduced = usePrefersReducedMotion()
   const started = useStartWhenVisible()
   const fecha = new Date(fechaISO)
@@ -98,26 +71,9 @@ export default function Hero() {
         aria-hidden
       />
 
-      {/* corona */}
-      <motion.div
-        {...anim(
-          { opacity: 0, scale: 0.3, y: -30, rotate: -12 },
-          { opacity: 1, scale: 1, y: 0, rotate: 0 },
-          T.corona,
-          2,
-        )}
-      >
-        <motion.div
-          animate={reduced || !started ? undefined : { y: [0, -10, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: T.corona + 2 }}
-        >
-          <Crown />
-        </motion.div>
-      </motion.div>
-
       {/* "Te invito a mis" */}
       <motion.p
-        className="eyebrow mb-5 mt-6"
+        className="eyebrow mb-5"
         {...anim(
           { opacity: 0, y: 14, letterSpacing: '0.9em' },
           { opacity: 1, y: 0, letterSpacing: '0.34em' },
@@ -198,20 +154,9 @@ export default function Hero() {
       </h2>
 
       {/* calendario del evento */}
-      <div className="mt-6">
+      <div className="mt-8">
         <EventCalendar fecha={fecha} delay={T.calendario} started={started} reduced={reduced} />
       </div>
-
-      {/* fecha en texto + hora y lugar */}
-      <motion.div
-        className="mt-5 space-y-1 font-sans text-sm tracking-royal text-celeste-soft/90"
-        {...anim({ opacity: 0, y: 18 }, { opacity: 1, y: 0 }, T.lugar, 1.6)}
-      >
-        <p className="uppercase">{fechaTexto}</p>
-        <p className="uppercase">
-          {horaTexto} · {ubicacion.lugar}
-        </p>
-      </motion.div>
     </header>
   )
 }
