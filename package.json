@@ -12,6 +12,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@react-three/fiber": "^8.18.0",
     "canvas-confetti": "^1.9.3",
     "framer-motion": "^11.3.19",
     "leaflet": "^1.9.4",
@@ -19,13 +20,15 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-leaflet": "^4.2.1",
-    "react-router-dom": "^6.30.4"
+    "react-router-dom": "^6.30.4",
+    "three": "^0.160.1"
   },
   "devDependencies": {
     "@types/canvas-confetti": "^1.6.4",
     "@types/leaflet": "^1.9.12",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
+    "@types/three": "^0.160.0",
     "@vercel/node": "^3.2.24",
     "@vercel/postgres": "^0.10.0",
     "@vitejs/plugin-react": "^4.3.1",

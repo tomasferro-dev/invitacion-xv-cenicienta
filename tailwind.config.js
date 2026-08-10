@@ -38,6 +38,9 @@ export default {
       },
       maxWidth: {
         content: '1100px',
+        // ancho de la columna de la invitación: se mantiene "mobile" también
+        // en tablet/desktop (el castillo es vertical 9:16 y así no se recorta)
+        column: '480px',
       },
       keyframes: {
         'fade-up': {

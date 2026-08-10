@@ -45,7 +45,7 @@ function makeSprite(r: number, g: number, b: number): HTMLCanvasElement {
   return c
 }
 
-export default function MagicBackground() {
+export default function MagicBackground({ intensity = 1 }: { intensity?: number } = {}) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const pointer = usePointer()
   const scroll = useScrollDust()
@@ -154,8 +154,8 @@ export default function MagicBackground() {
       particles.length = 0
       const area = width * height
       const density = isMobile() ? 26000 : 15000
-      const snowCount = Math.min(reduced ? 40 : 240, Math.floor(area / density))
-      const starCount = Math.min(reduced ? 30 : 120, Math.floor(area / (density * 2.2)))
+      const snowCount = Math.min(reduced ? 40 : 240, Math.floor((area / density) * intensity))
+      const starCount = Math.min(reduced ? 30 : 120, Math.floor((area / (density * 2.2)) * intensity))
       for (let i = 0; i < snowCount; i++) particles.push(spawnSnow(false))
       for (let i = 0; i < starCount; i++) particles.push(spawnStar())
     }
@@ -299,7 +299,7 @@ export default function MagicBackground() {
       window.removeEventListener('resize', resize)
       document.removeEventListener('visibilitychange', onVisibility)
     }
-  }, [reduced, pointer, scroll])
+  }, [reduced, pointer, scroll, intensity])
 
   return (
     <canvas
